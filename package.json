@@ -1,0 +1,22 @@
+{
+  "name": "API_in_Express_and_MongoDB",
+  "version": "1.0.0",
+  "description": "The goal of this project is to build a backend using Express and MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "up_db": "docker compose -f mongodb/db/docker-compose.yml up -d && node mongodb/mongodb-example.js",
+    "stop_db": "docker compose -f mongodb/db/docker-compose.yml stop",
+    "restart_db": "npm run stop_db && npm run up_db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zhomas06/API_in_Express_and_MongoDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zhomas06/API_in_Express_and_MongoDB/issues"
+  },
+  "homepage": "https://github.com/Zhomas06/API_in_Express_and_MongoDB#readme"
+}

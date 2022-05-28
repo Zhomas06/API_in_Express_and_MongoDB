@@ -1,0 +1,13 @@
+{
+  "name": "mongo-test",
+  "version": "0.0.1",
+  "description": "A MongoDB test project",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Pau Fernández <pau.fernandez@upc.edu>",
+  "license": "ISC",
+  "dependencies": {
+    "mongo": "^0.1.0",
+    "mongodb": "^3.5.9"
+  }
+}
