@@ -7,8 +7,8 @@ const client = new mongodb.MongoClient(url, { useUnifiedTopology: true });
 async function main() {
   await client.connect();
   const db = client.db("compras");
-  let Id_Tomas = ObjectId("5c9ccc140aee604c4ab6cd06")
-  let Id_Antonio = ObjectId("5c9ccc140aee604c4ab6cd08")
+  let Id_Tomas = mongodb.ObjectId()
+  let Id_Antonio = mongodb.ObjectId()
   const result = await db.collection("personas").insertMany([
     { "_id": Id_Tomas, "name": "Tomas", "surnames": "Navas", "age": 23, "mail": "tomas_defaul_@gmail.com" },
     { "_id": Id_Antonio, "name": "Antornio", "surnames": "Lopez", "age": 26, "mail": "antonio_default_@gmail.com" },
