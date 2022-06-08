@@ -43,17 +43,31 @@ const addingElementList = async (req, res) => {
     try {
         const newElement = req.body;
         const { id } = req.params;
-        console.log(id)
-        console.log(newElement.name)
-        console.log(newElement.quantity)
-        const docs = await Listas.updateOne(
-            { _id: id, "lista.name": newElement.name },
+
+        let docs = await Listas.updateOne(
+            
+            //Filter --> Specify which element.
+            { _id: id, "lista.name": newElement.name, },
+            //Update --> It defines whats going to be done.
             {
                 $inc: { "lista.$.quantity": newElement.quantity },
             },
 
         ).lean().exec();
-        //res.status(200).json({ results: docs });
+
+        //If modifiedCount === 0 then create.
+        if (docs.matchedCount === 0) {
+
+            docs = await Listas.updateOne(
+                { _id: id },
+                {
+                    $push: {
+                        lista: newElement
+                    }
+                }
+            );
+        }
+        
         res.status(200).json({ results: docs });
 
     } catch (e) {

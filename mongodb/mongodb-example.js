@@ -16,7 +16,7 @@ async function main() {
   ]);
   const result_2 = await db.collection("listas").insertMany([
     { "idFrom": Id_Tomas, "lista": [{ "name": "Apple", "quantity": 10 }], "ts_creation": Date.now() },
-    { "idFrom": Id_Antonio, "lista": [{ "name": "Mela", "quantity": 10 }], "ts_creation": Date.now() },
+    { "idFrom": Id_Antonio, "lista": [{ "name": "Pon", "quantity": 10 }, { "name": "Pini", "quantity": 10 }], "ts_creation": Date.now() },
   ]);
 
   console.log("The database was started without any problems.");
