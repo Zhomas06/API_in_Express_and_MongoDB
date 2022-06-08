@@ -1,5 +1,6 @@
 const Personas = require("./personas.model");
 const Listas = require("../listas/listas.model");
+const Controlador_Lista = require("../listas/listas.controller");
 
 const findAll = async (req, res) => {
     try {
@@ -42,12 +43,13 @@ const terminateOne = async (req, res) => {
     }
 }
 
-const findAllListas = async (req, res) => {
+const findAllListasOfPerson = async (req, res) => {
 
     try {
         const { id } = req.params;
-        const docs = await Listas.find({ "idFrom":id}).lean().exec();
-        res.status(200).json({ results: docs });
+   
+        const docs = await Controlador_Lista.findAllListasFromOnePerson(id);
+            res.status(200).json({ results: docs });
 
     }
     catch (e) {
@@ -72,6 +74,6 @@ module.exports = {
     findOne,
     putOne,
     terminateOne,
-    findAllListas,
+    findAllListasOfPerson,
     addingList
 }

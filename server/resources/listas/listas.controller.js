@@ -51,7 +51,7 @@ const addingElementList = async (req, res) => {
             {
                 $inc: { "lista.$.quantity": newElement.quantity },
             },
-            { upsert: true, }
+
         ).lean().exec();
         //res.status(200).json({ results: docs });
         res.status(200).json({ results: docs });
@@ -61,10 +61,17 @@ const addingElementList = async (req, res) => {
     }
 }
 
+const findAllListasFromOnePerson = async (id) => {
+
+    //TODO -- Tenemos que importar la funcion desde el controlador
+    const docs = await Listas.find({ "idFrom": id }).lean().exec();
+    return docs;
+}
 module.exports = {
     findAll,
     findOne,
     deleteOne,
-    addingElementList
+    addingElementList,
+    findAllListasFromOnePerson
 
 }
