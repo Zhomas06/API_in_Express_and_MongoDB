@@ -97,6 +97,7 @@ const deleteElementList = async (req, res) => {
         res.status(500).json({ error: "The DB was not able to remove the element" });
     }
 }
+
 module.exports = {
     findAll,
     findOne,
